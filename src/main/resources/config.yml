@@ -1,0 +1,75 @@
+# ╔══════════════════════════════════════╗
+# ║       PlayerStats - config.yml       ║
+# ╚══════════════════════════════════════╝
+
+# Максимальный уровень игрока
+max-level: 85
+
+# Бонус здоровья за каждый уровень (2 = 1 сердце)
+hp-per-level: 0.5
+
+# Бонус урона за каждый уровень
+damage-per-level: 0.1
+
+# Показывать сообщение о полученном опыте после каждого убийства?
+show-exp-gain: true
+
+# Активна ли Кровавая Луна? (x5 опыта)
+# Управляется командой: /statsadmin bloodmoon <on/off>
+bloodmoon-active: false
+
+# ══════════════════════════════════════
+#         ОПЫТ ЗА МОБОВ
+# ══════════════════════════════════════
+mob-exp:
+
+  # ── ОБЫЧНЫЕ МОБЫ ──────────────────
+  ZOMBIE: 100
+  HUSK: 110
+  DROWNED: 130
+  ZOMBIE_VILLAGER: 90
+
+  SKELETON: 100
+  STRAY: 120
+  BOGGED: 115
+
+  CREEPER: 150
+  SPIDER: 80
+  CAVE_SPIDER: 120
+  ENDERMAN: 200
+  WITCH: 250
+  SLIME: 60
+  MAGMA_CUBE: 80
+
+  # ── НЕЗЕР ─────────────────────────
+  BLAZE: 300
+  WITHER_SKELETON: 400
+  PIGLIN: 150
+  PIGLIN_BRUTE: 350
+  ZOMBIFIED_PIGLIN: 120
+  GHAST: 280
+  HOGLIN: 200
+  ZOGLIN: 220
+
+  # ── КОНЕЦ ─────────────────────────
+  ENDERMITE: 60
+  SHULKER: 350
+
+  # ── РЕДКИЕ И СЛОЖНЫЕ ──────────────
+  GUARDIAN: 400
+  ELDER_GUARDIAN: 2000
+  PILLAGER: 300
+  VINDICATOR: 350
+  EVOKER: 800
+  RAVAGER: 1500
+  ILLUSIONER: 600
+
+  # ── БОССЫ ─────────────────────────
+  WITHER: 10000
+  ENDER_DRAGON: 25000
+  WARDEN: 5000
+
+  # ── ПРОЧИЕ ────────────────────────
+  SILVERFISH: 30
+  PHANTOM: 180
+  VEX: 150
