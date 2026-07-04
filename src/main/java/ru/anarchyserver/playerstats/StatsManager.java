@@ -55,6 +55,15 @@ public class StatsManager {
         int level = data.getLevel();
         int maxLevel = plugin.getConfig().getInt("max-level", 85);
 
+        // Применяем статы сначала, чтобы получить новый maxHealth
+        applyStats(player, data);
+
+        // Восстанавливаем HP до нового максимума при левел-апе
+        AttributeInstance maxHp = player.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+        if (maxHp != null) {
+            player.setHealth(maxHp.getValue());
+        }
+
         player.sendMessage("");
         player.sendMessage("§4☠ §cПОВЫШЕНИЕ УРОВНЯ! §4☠");
         player.sendMessage("§7Вы достигли уровня §6[§c" + level + "§6]§7!");
@@ -89,6 +98,7 @@ public class StatsManager {
         double hpBonus = data.getLevel() * plugin.getConfig().getDouble("hp-per-level", 0.5);
         double damageBonus = data.getLevel() * plugin.getConfig().getDouble("damage-per-level", 0.1);
 
+        // ── HP ──────────────────────────────────────────────
         AttributeInstance maxHealth = player.getAttribute(Attribute.GENERIC_MAX_HEALTH);
         if (maxHealth != null) {
             maxHealth.getModifiers().stream()
@@ -100,6 +110,12 @@ public class StatsManager {
             ));
         }
 
+        // ✅ ФИКС: всегда показывать 10 сердец на экране (20 = 10 сердец)
+        // Реальный HP остаётся высоким, но UI не раздувается
+        player.setHealthScaled(true);
+        player.setHealthScale(20.0);
+
+        // ── УРОН ────────────────────────────────────────────
         AttributeInstance attackDamage = player.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE);
         if (attackDamage != null) {
             attackDamage.getModifiers().stream()
